@@ -34,7 +34,7 @@ known_regions+=('us-gov-west-1')
 
 # General options about the instance
 arch='amd64'
-locale='en_US'
+locale='en_AU'
 charmap='UTF-8'
 timezone='UTC'
 apt_mirror='http://http.debian.net/debian'
@@ -58,7 +58,7 @@ mountoptions=
 volume_size='1'
 device_path=
 debootstrap_dir='/target'
-imagedir=
+imagedir='.'
 volume_id=
 snapshot_id=
 ami_id=
