@@ -1,9 +1,19 @@
 #!/bin/bash
 # Create a snapshot of the EBS volume
 logn "Creating snapshot of the EBS volume"
-snapshot=`euca-create-snapshot $volume_id`
+
+
+snapshot=`aws ec2 create-snapshot --volume-id $volume_id`
 [ -z "$snapshot" ] && die "\nUnable to create snapshot from the volume '$volume_id'"
 snapshot_id=`printf -- "$snapshot" | awk '{print $2}'`
 
 # Wait for the snapshot to be completed, can take quite some time
-dotdot "euca-describe-snapshots $snapshot_id | grep 'completed'"
+dotdot "aws ec2 describe-snapshots --snapshot-ids $snapshot_id | grep 'completed'"
+
+
+##snapshot=`euca-create-snapshot $volume_id`
+##[ -z "$snapshot" ] && die "\nUnable to create snapshot from the volume '$volume_id'"
+##snapshot_id=`printf -- "$snapshot" | awk '{print $2}'`
+
+# Wait for the snapshot to be completed, can take quite some time
+##dotdot "euca-describe-snapshots $snapshot_id | grep 'completed'"
