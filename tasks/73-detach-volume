@@ -1,4 +1,8 @@
 #!/bin/bash
 # Detach the EBS volume
-euca-detach-volume $volume_id
-dotdot "euca-describe-volumes $volume_id | grep 'available'"
+
+aws ec2 detach-volume --volume-id $volume_id
+dotdot "aws ec2 describe-volumes --volume-ids $volume_id | grep 'available'"
+
+##euca-detach-volume $volume_id
+##dotdot "euca-describe-volumes $volume_id | grep 'available'"

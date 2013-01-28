@@ -1,5 +1,6 @@
 #!/bin/bash
 # Mount the EBS volume
+
 imagedir=$debootstrap_dir/${volume_id}
 
 # Fail if the imagedir exists, it should be quite unique.

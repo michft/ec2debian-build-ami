@@ -12,14 +12,29 @@ packages+=('file')
 # Apparently isc-dhcp-client doesn't work properly with ec2
 packages+=('dhcpcd')
 
+## Adding git, nginx, python27 and salt beacuse I want multi webservers.
+packages+=('git')
+packages+=('nginx')
+packages+=('python2.7')
+##not in testing yet!
+##packages+=('salt-minion')
+
+[ $arch = 'i386' ] && packages+=('linux-image-xen-686')
+## 3.2 kernel
+[ $arch = 'amd64' ] && packages+=('xen-linux-system-amd64')
+
 # We use dhcpcd instead
 exclude_packages+=('isc-dhcp-client')
 exclude_packages+=('isc-dhcp-common')
 
-# euca2ools dependencies
-host_packages+=('build-essential')
-host_packages+=('python-boto')
-host_packages+=('python-m2crypto')
+### euca2ools dependencies
+##host_packages+=('build-essential')
+##host_packages+=('python-boto')
+##host_packages+=('python-m2crypto')
+
+#Using aws_cli instead of euclayptus et al.
+#Already must have git on host.
+host_packages+=('python2.7')
 
 # We will need to format the volume, so we need xfsprogs
 [ $filesystem = 'xfs' ] && host_packages+=('xfsprogs')
