@@ -1,6 +1,6 @@
 #!/bin/bash
 # Add some basic packages we are going to need
-packages+=('grub')
+packages+=('grub-pc')
 packages+=('udev')
 packages+=('openssh-server')
 # We could bootstrap without locales, but things just suck without them,
@@ -20,6 +20,7 @@ packages+=('python2.7')
 ##packages+=('salt-minion')
 
 [ $arch = 'i386' ] && packages+=('linux-image-xen-686')
+## 3.2 kernel
 [ $arch = 'amd64' ] && packages+=('xen-linux-system-amd64')
 
 # We use dhcpcd instead

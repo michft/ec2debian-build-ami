@@ -56,7 +56,7 @@ ami_id=`aws ec2 register-image \
 
 # If the user has already created an unnamed AMI today,
 # this will fail, so give the AMI registration command to the user
-if [ -z "$ami_id" ]; then
+if [[ ! "$ami_id" =~ ^ami-[0-9a-z]{8}$ ]]; then
 	die \
 		"Unable to register the snapshot as an AMI." \
 		"You can do it manually with:" \
@@ -65,4 +65,4 @@ if [ -z "$ami_id" ]; then
 		"--architecture '$ami_arch' --kernel-id '$aki' \\\\" \
 		"--block-device-mappings snapshot_id '$snapshot_id'"
 fi
-log "Your AMI has been created with the ID $ami_id"
+log "Your AMI has been created with the ID '$ami_id'"

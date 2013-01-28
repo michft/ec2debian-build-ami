@@ -1,3 +1,25 @@
+### 2013-01-21 Anders Ingemann <anders@ingemann.de> ###
+
+#### Major changes: ####
+* Added support for wheezy
+* Implemented support for additional tasks based on the debian version codename
+
+#### Minor changes: ####
+* List operations have been refactored (tasks, known_regions)
+* Prevent two tasks from having the same basename
+* Fixed a bug where the help message for registering an AMI was not displayed correctly
+
+### 2013-01-17 Anders Ingemann <anders@ingemann.de> ###
+
+#### Major changes: ####
+* Fixed a bug that prevented boto from being patched that was introduced when switching to wget in 0d96ebc83e
+
+#### Minor changes: ####
+* Check `$PIPESTATUS` to make sure the boto patch was successful
+* Use sudoers.d in `admin-user` plugin (by @tmatilai)
+* Install `grub-pc` instead of the `grub` dummypackage (by @tmatilai)
+* Verify the AMI ID with a regex
+
 ### 2012-11-19 Anders Ingemann <anders@ingemann.de> ###
 
 #### Major changes: ####
