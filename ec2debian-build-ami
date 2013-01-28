@@ -37,12 +37,12 @@ arch='amd64'
 locale='en_AU'
 charmap='UTF-8'
 timezone='UTC'
-apt_mirror='http://http.debian.net/debian'
+apt_mirror='ftp://ftp.au.debian.org/debian'
 
 # Hardcoded params.
 # This script would explode if we had to take care of other distributions
 distribution='debian'
-codename='squeeze'
+codename='wheezy'
 ami_name_suffix=$(date +%Y%m%d)
 description=
 
