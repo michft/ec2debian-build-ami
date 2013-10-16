@@ -20,8 +20,7 @@ packages+=('python2.7')
 ##packages+=('salt-minion')
 
 [ $arch = 'i386' ] && packages+=('linux-image-xen-686')
-## 3.2 kernel
-[ $arch = 'amd64' ] && packages+=('linux-image-xen-amd64')
+[ $arch = 'amd64' ] && packages+=('linux-image-amd64')
 
 # We use dhcpcd instead
 exclude_packages+=('isc-dhcp-client')
